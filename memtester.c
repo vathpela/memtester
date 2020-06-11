@@ -273,6 +273,19 @@ int main(int argc, char **argv) {
     printf("want %lluMB (%llu bytes)\n", (ull) wantmb, (ull) wantbytes);
     buf = NULL;
 
+    if (access("/proc/self/oom_score_adj", W_OK) == 0) {
+	    int fd;
+
+	    fd = open("/proc/self/oom_score_adj", O_WRONLY);
+	    if (fd >= 0) {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-result"
+		    write(fd, "-1000", 5);
+#pragma GCC diagnostic pop
+		    close(fd);
+	    }
+    }
+
     if (use_phys) {
         memfd = open(device_name, O_RDWR | O_SYNC);
         if (memfd == -1) {
