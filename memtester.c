@@ -142,7 +142,7 @@ int main(int argc, char **argv) {
     /* If MEMTESTER_TEST_MASK is set, we use its value as a mask of which
        tests we run.
      */
-    if (env_testmask = getenv("MEMTESTER_TEST_MASK")) {
+    if ((env_testmask = getenv("MEMTESTER_TEST_MASK"))) {
         errno = 0;
         testmask = strtoul(env_testmask, 0, 0);
         if (errno) {
