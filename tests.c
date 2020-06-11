@@ -25,7 +25,7 @@
 char progress[] = "-\\|/";
 #define PROGRESSLEN 4
 #define PROGRESSOFTEN 2500
-#define ONE 0x00000001L
+#define ONE 0x00000001UL
 
 /* Function definitions. */
 
