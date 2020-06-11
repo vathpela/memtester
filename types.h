@@ -25,12 +25,16 @@ struct test {
     int (*fp)();
 };
 
-union {
+typedef union {
     unsigned char bytes[UL_LEN/8];
     ul val;
-} mword8;
+} mword8_t;
 
-union {
+extern mword8_t mword8;
+
+typedef union {
     unsigned short u16s[UL_LEN/16];
     ul val;
-} mword16;
+} mword16_t;
+
+extern mword16_t mword16;

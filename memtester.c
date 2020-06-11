@@ -33,6 +33,9 @@
 #define EXIT_FAIL_ADDRESSLINES  0x02
 #define EXIT_FAIL_OTHERTEST     0x04
 
+mword8_t mword8;
+mword16_t mword16;
+
 struct test tests[] = {
     { "Random Value", test_random_value },
     { "Compare XOR", test_xor_comparison },
